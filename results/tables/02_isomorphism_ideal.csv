@@ -1,0 +1,8 @@
+feature,n_bins,beta_eff,w_corr_s_woe,sign_match,spearman_s_woe,max_abs_resid
+RevolvingUtilizationOfUnsecuredLines,6,0.998784,0.999997,1.0,1.0,0.006284
+NumberOfTimes90DaysLate,3,1.000023,0.981051,1.0,0.5,2.822687
+NumberOfTime30-59DaysPastDueNotWorse,4,1.000008,0.984369,1.0,0.4,2.822687
+age,7,1.000644,0.998491,1.0,0.785714,12.05928
+NumberOfOpenCreditLinesAndLoans,4,0.999781,1.0,1.0,1.0,0.000599
+MonthlyIncome,6,0.998216,0.999996,0.833333,1.0,0.001353
+NumberOfDependents,5,1.000321,0.999998,1.0,1.0,0.002476
