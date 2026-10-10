@@ -1,8 +1,0 @@
-feature,beta_eff_raw,w_corr_raw,n_stumps_used
-RevolvingUtilizationOfUnsecuredLines,0.679794,0.998926,169
-NumberOfTimes90DaysLate,0.550505,0.999626,89
-NumberOfTime30-59DaysPastDueNotWorse,0.577699,0.999396,71
-age,0.439116,0.983854,58
-NumberOfOpenCreditLinesAndLoans,-0.111125,-0.292688,105
-MonthlyIncome,0.435281,0.932883,76
-NumberOfDependents,0.124897,0.862672,32

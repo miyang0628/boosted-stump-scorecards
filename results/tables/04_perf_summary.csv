@@ -1,4 +1,0 @@
-model,auc_mean,auc_std,ks_mean,ks_std,gini_mean,psi_mean,n_features,scorecard_cells
-logit_woe,0.846083,0.003066,0.542041,0.006601,0.692166,0.000289,7,30.0
-stump_boost,0.847273,0.003137,0.543246,0.006253,0.694547,0.000263,7,30.0
-xgb_ceiling,0.852035,0.003172,0.551119,0.007098,0.70407,0.000286,7,
