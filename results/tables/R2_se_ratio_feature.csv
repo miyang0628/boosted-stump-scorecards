@@ -1,0 +1,8 @@
+feature,strength,miss,beta,se_woe,se_gam,ratio,ratio_betacorr
+RevolvingUtilizationOfUnsecuredLines,strong,nomiss,0.680013,0.023354,0.027569,1.180526,0.802774
+NumberOfTimes90DaysLate,strong,nomiss,0.59995,0.009276,0.007737,0.834002,0.50036
+NumberOfTime30-59DaysPastDueNotWorse,strong,nomiss,0.627067,0.011089,0.011857,1.069225,0.670476
+age,strong,nomiss,0.447035,0.019574,0.032335,1.65191,0.738461
+NumberOfOpenCreditLinesAndLoans,weak,nomiss,-0.060919,0.011341,0.021354,1.882973,0.11471
+MonthlyIncome,strong,miss,0.360605,0.01449,0.030398,2.097872,0.756503
+NumberOfDependents,weak,miss,0.189501,0.012745,0.022906,1.79718,0.340567

@@ -1,0 +1,8 @@
+feature,beta,se,ci_lo,ci_hi
+RevolvingUtilizationOfUnsecuredLines,0.680013,0.012471,0.655571,0.704456
+NumberOfTimes90DaysLate,0.59995,0.011124,0.578148,0.621753
+NumberOfTime30-59DaysPastDueNotWorse,0.627067,0.012732,0.602114,0.652021
+age,0.447035,0.026264,0.395559,0.498511
+NumberOfOpenCreditLinesAndLoans,-0.060919,0.042779,-0.144765,0.022926
+MonthlyIncome,0.360605,0.043413,0.275518,0.445692
+NumberOfDependents,0.189501,0.062728,0.066556,0.312446

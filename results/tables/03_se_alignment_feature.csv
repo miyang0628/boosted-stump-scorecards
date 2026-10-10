@@ -1,0 +1,8 @@
+feature,group,beta,beta_se_wald,se_logit_wrms,se_stump_wrms,se_stumpA_wrms,se_ratio,BA_ratio,wilcoxon_p
+RevolvingUtilizationOfUnsecuredLines,iso_nomiss,0.680013,0.012471,0.022562,0.027291,0.027981,1.20957,0.975321,0.09375
+NumberOfTimes90DaysLate,iso_nomiss,0.59995,0.011124,0.009123,0.009044,0.00895,0.991362,1.010501,1.0
+NumberOfTime30-59DaysPastDueNotWorse,iso_nomiss,0.627067,0.012732,0.01092,0.011963,0.012901,1.095543,0.927294,0.75
+age,iso_nomiss,0.447035,0.026264,0.018906,0.028145,0.029011,1.488624,0.97012,0.03125
+NumberOfOpenCreditLinesAndLoans,broken,-0.060919,0.042779,0.011638,0.016487,0.016991,1.416638,0.970303,0.375
+MonthlyIncome,iso_miss,0.360605,0.043413,0.014269,0.024507,0.023515,1.717446,1.042191,0.03125
+NumberOfDependents,broken,0.189501,0.062728,0.012456,0.020878,0.019738,1.676164,1.057778,0.0625

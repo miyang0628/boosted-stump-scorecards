@@ -1,0 +1,11 @@
+feature,IV,n_bins,has_missing_bin,selected
+RevolvingUtilizationOfUnsecuredLines,1.1066898864590966,6,0,True
+NumberOfTimes90DaysLate,0.8005834487277439,2,0,True
+NumberOfTime30-59DaysPastDueNotWorse,0.7070315098907012,3,0,True
+age,0.260260212471067,6,0,True
+NumberOfOpenCreditLinesAndLoans,0.07597158899365097,4,0,True
+MonthlyIncome,0.07447259399718585,5,1,True
+NumberOfDependents,0.03530333917324872,4,1,True
+DebtRatio,0.012620247553439682,3,0,False
+NumberRealEstateLoansOrLines,0.005167412805724964,2,0,False
+NumberOfTime60-89DaysPastDueNotWorse,0.0001916434162701832,1,0,False

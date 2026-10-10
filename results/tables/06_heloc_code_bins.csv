@@ -1,0 +1,12 @@
+feature,code,n,woe,stump_s,abs_diff
+ExternalRiskEstimate,code_other,10,1.142491,1.142483,8e-06
+MSinceOldestTradeOpen,code-8,239,0.077381,0.077373,8e-06
+MSinceMostRecentDelq,code-7,4664,-0.491665,-0.491673,8e-06
+MSinceMostRecentDelq,code-8,176,0.284316,0.284308,8e-06
+MSinceMostRecentInqexcl7days,code-7,1855,0.380409,0.380401,8e-06
+MSinceMostRecentInqexcl7days,code-8,476,-1.660832,-1.660841,8e-06
+NetFractionRevolvingBurden,code-8,186,1.301671,1.301663,8e-06
+NetFractionInstallBurden,code-8,3419,-0.203659,-0.203668,8e-06
+NumRevolvingTradesWBalance,code-8,156,1.42474,1.424732,8e-06
+NumBank2NatlTradesWHighUtilization,code-8,583,0.888975,0.888967,8e-06
+PercentTradesWBalance,code_other,18,1.088787,1.088778,8e-06
