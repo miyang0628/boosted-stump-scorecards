@@ -1,0 +1,457 @@
+{
+  "target": "SeriousDlqin2yrs",
+  "features": [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "NumberOfTimes90DaysLate",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "age",
+    "NumberOfOpenCreditLinesAndLoans",
+    "MonthlyIncome",
+    "NumberOfDependents"
+  ],
+  "total_good": 139974,
+  "total_bad": 10026,
+  "woe_convention": "ln(bad_pct/good_pct); higher risk -> higher WoE",
+  "iv_threshold": 0.02,
+  "dropped_features": [
+    "DebtRatio",
+    "NumberRealEstateLoansOrLines",
+    "NumberOfTime60-89DaysPastDueNotWorse"
+  ],
+  "maps": {
+    "RevolvingUtilizationOfUnsecuredLines": [
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 0.13183673471212387,
+        "good": 69733,
+        "bad": 1310,
+        "woe": -1.3380434145686537,
+        "n": 71043,
+        "bad_rate": 0.018439536618667568,
+        "iv_part": 0.49170892321938614
+      },
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 1,
+        "lo": 0.13183673471212387,
+        "hi": 0.3008972406387329,
+        "good": 21185,
+        "bad": 753,
+        "woe": -0.7001145710933196,
+        "n": 21938,
+        "bad_rate": 0.03432400401130459,
+        "iv_part": 0.05334993279369268
+      },
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 2,
+        "lo": 0.3008972406387329,
+        "hi": 0.49497613310813904,
+        "good": 14486,
+        "bad": 894,
+        "woe": -0.1484788820681411,
+        "n": 15380,
+        "bad_rate": 0.05812743823146944,
+        "iv_part": 0.002120318029796279
+      },
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 3,
+        "lo": 0.49497613310813904,
+        "hi": 0.6981423199176788,
+        "good": 10499,
+        "bad": 1100,
+        "woe": 0.38066566022952897,
+        "n": 11599,
+        "bad_rate": 0.09483576170359513,
+        "iv_part": 0.013227768979435426
+      },
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 4,
+        "lo": 0.6981423199176788,
+        "hi": 0.9032624363899231,
+        "good": 8662,
+        "bad": 1510,
+        "woe": 0.8896660325557534,
+        "n": 10172,
+        "bad_rate": 0.14844671647660243,
+        "iv_part": 0.07897076348504589
+      },
+      {
+        "feature": "RevolvingUtilizationOfUnsecuredLines",
+        "bin": 5,
+        "lo": 0.9032624363899231,
+        "hi": Infinity,
+        "good": 15409,
+        "bad": 4459,
+        "woe": 1.3962811250090195,
+        "n": 19868,
+        "bad_rate": 0.22443124622508556,
+        "iv_part": 0.4673121799517402
+      }
+    ],
+    "NumberOfTimes90DaysLate": [
+      {
+        "feature": "NumberOfTimes90DaysLate",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 0.5,
+        "good": 135108,
+        "bad": 6554,
+        "woe": -0.38969764746234303,
+        "n": 141662,
+        "bad_rate": 0.0462650534370544,
+        "iv_part": 0.12139817350391392
+      },
+      {
+        "feature": "NumberOfTimes90DaysLate",
+        "bin": 1,
+        "lo": 0.5,
+        "hi": Infinity,
+        "good": 4744,
+        "bad": 3325,
+        "woe": 2.280862661537848,
+        "n": 8069,
+        "bad_rate": 0.4120708885859462,
+        "iv_part": 0.67918527522383
+      },
+      {
+        "feature": "NumberOfTimes90DaysLate",
+        "bin": -1,
+        "lo": NaN,
+        "hi": NaN,
+        "good": 122,
+        "bad": 147,
+        "woe": 0.0,
+        "n": 269,
+        "bad_rate": 0.5464684014869888,
+        "iv_part": 0.0
+      }
+    ],
+    "NumberOfTime30-59DaysPastDueNotWorse": [
+      {
+        "feature": "NumberOfTime30-59DaysPastDueNotWorse",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 0.5,
+        "good": 120977,
+        "bad": 5041,
+        "woe": -0.5416722458142779,
+        "n": 126018,
+        "bad_rate": 0.04000222190480725,
+        "iv_part": 0.19579549838842214
+      },
+      {
+        "feature": "NumberOfTime30-59DaysPastDueNotWorse",
+        "bin": 1,
+        "lo": 0.5,
+        "hi": 1.5,
+        "good": 13624,
+        "bad": 2409,
+        "woe": 0.903778289697195,
+        "n": 16033,
+        "bad_rate": 0.15025260400424126,
+        "iv_part": 0.12922003630962045
+      },
+      {
+        "feature": "NumberOfTime30-59DaysPastDueNotWorse",
+        "bin": 2,
+        "lo": 1.5,
+        "hi": Infinity,
+        "good": 5251,
+        "bad": 2429,
+        "woe": 1.8654004000103133,
+        "n": 7680,
+        "bad_rate": 0.3162760416666667,
+        "iv_part": 0.38201597519265856
+      },
+      {
+        "feature": "NumberOfTime30-59DaysPastDueNotWorse",
+        "bin": -1,
+        "lo": NaN,
+        "hi": NaN,
+        "good": 122,
+        "bad": 147,
+        "woe": 0.0,
+        "n": 269,
+        "bad_rate": 0.5464684014869888,
+        "iv_part": 0.0
+      }
+    ],
+    "age": [
+      {
+        "feature": "age",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 36.5,
+        "good": 21236,
+        "bad": 2628,
+        "woe": 0.5469206171365891,
+        "n": 23864,
+        "bad_rate": 0.11012403620516259,
+        "iv_part": 0.06040102072009614
+      },
+      {
+        "feature": "age",
+        "bin": 1,
+        "lo": 36.5,
+        "hi": 43.5,
+        "good": 18779,
+        "bad": 1865,
+        "woe": 0.3269919395487286,
+        "n": 20644,
+        "bad_rate": 0.09034101918232901,
+        "iv_part": 0.016968666752222333
+      },
+      {
+        "feature": "age",
+        "bin": 2,
+        "lo": 43.5,
+        "hi": 55.5,
+        "good": 40174,
+        "bad": 3312,
+        "woe": 0.14069940054411204,
+        "n": 43486,
+        "bad_rate": 0.07616244308513084,
+        "iv_part": 0.006100939294226009
+      },
+      {
+        "feature": "age",
+        "bin": 3,
+        "lo": 55.5,
+        "hi": 62.5,
+        "good": 22826,
+        "bad": 1209,
+        "woe": -0.30148641544172206,
+        "n": 24035,
+        "bad_rate": 0.05030164343665488,
+        "iv_part": 0.012796832724924838
+      },
+      {
+        "feature": "age",
+        "bin": 4,
+        "lo": 62.5,
+        "hi": 67.5,
+        "good": 13887,
+        "bad": 481,
+        "woe": -0.7256095274825197,
+        "n": 14368,
+        "bad_rate": 0.0334771714922049,
+        "iv_part": 0.03714522881667005
+      },
+      {
+        "feature": "age",
+        "bin": 5,
+        "lo": 67.5,
+        "hi": Infinity,
+        "good": 23071,
+        "bad": 531,
+        "woe": -1.1344214955507865,
+        "n": 23602,
+        "bad_rate": 0.022498093381916787,
+        "iv_part": 0.12684752416292763
+      },
+      {
+        "feature": "age",
+        "bin": -1,
+        "lo": NaN,
+        "hi": NaN,
+        "good": 1,
+        "bad": 0,
+        "woe": 0.0,
+        "n": 1,
+        "bad_rate": 0.0,
+        "iv_part": 0.0
+      }
+    ],
+    "NumberOfOpenCreditLinesAndLoans": [
+      {
+        "feature": "NumberOfOpenCreditLinesAndLoans",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 2.5,
+        "good": 11314,
+        "bad": 1678,
+        "woe": 0.7280441236854798,
+        "n": 12992,
+        "bad_rate": 0.1291564039408867,
+        "iv_part": 0.06302954117966492
+      },
+      {
+        "feature": "NumberOfOpenCreditLinesAndLoans",
+        "bin": 1,
+        "lo": 2.5,
+        "hi": 3.5,
+        "good": 8376,
+        "bad": 682,
+        "woe": 0.12880575715271325,
+        "n": 9058,
+        "bad_rate": 0.075292559063811,
+        "iv_part": 0.0010596299226812921
+      },
+      {
+        "feature": "NumberOfOpenCreditLinesAndLoans",
+        "bin": 2,
+        "lo": 3.5,
+        "hi": 5.5,
+        "good": 22978,
+        "bad": 1562,
+        "woe": -0.05204321828311844,
+        "n": 24540,
+        "bad_rate": 0.06365118174409128,
+        "iv_part": 0.0004332604133572848
+      },
+      {
+        "feature": "NumberOfOpenCreditLinesAndLoans",
+        "bin": 3,
+        "lo": 5.5,
+        "hi": Infinity,
+        "good": 97306,
+        "bad": 6104,
+        "woe": -0.13261091130663022,
+        "n": 103410,
+        "bad_rate": 0.059027173387486705,
+        "iv_part": 0.011449157477947482
+      }
+    ],
+    "MonthlyIncome": [
+      {
+        "feature": "MonthlyIncome",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 3332.5,
+        "good": 26229,
+        "bad": 2672,
+        "woe": 0.35235830758973624,
+        "n": 28901,
+        "bad_rate": 0.09245354832012734,
+        "iv_part": 0.027891258883033135
+      },
+      {
+        "feature": "MonthlyIncome",
+        "bin": 1,
+        "lo": 3332.5,
+        "hi": 5320.5,
+        "good": 27995,
+        "bad": 2427,
+        "woe": 0.19104681343696348,
+        "n": 30422,
+        "bad_rate": 0.07977779238708829,
+        "iv_part": 0.008043859145214315
+      },
+      {
+        "feature": "MonthlyIncome",
+        "bin": 2,
+        "lo": 5320.5,
+        "hi": 6643.5,
+        "good": 15050,
+        "bad": 1078,
+        "woe": 0.00038864883987083896,
+        "n": 16128,
+        "bad_rate": 0.06684027777777778,
+        "iv_part": 1.6244305605747765e-08
+      },
+      {
+        "feature": "MonthlyIncome",
+        "bin": 3,
+        "lo": 6643.5,
+        "hi": 9945.5,
+        "good": 23560,
+        "bad": 1318,
+        "woe": -0.24684817893066976,
+        "n": 24878,
+        "bad_rate": 0.052978535252029904,
+        "iv_part": 0.009088560673676672
+      },
+      {
+        "feature": "MonthlyIncome",
+        "bin": 4,
+        "lo": 9945.5,
+        "hi": Infinity,
+        "good": 19078,
+        "bad": 862,
+        "woe": -0.4602535014269486,
+        "n": 19940,
+        "bad_rate": 0.04322968906720161,
+        "iv_part": 0.023140526337081583
+      },
+      {
+        "feature": "MonthlyIncome",
+        "bin": -1,
+        "lo": NaN,
+        "hi": NaN,
+        "good": 28062,
+        "bad": 1669,
+        "woe": -0.1856813098737154,
+        "n": 29731,
+        "bad_rate": 0.05613669234132723,
+        "iv_part": 0.00630837271387454
+      }
+    ],
+    "NumberOfDependents": [
+      {
+        "feature": "NumberOfDependents",
+        "bin": 0,
+        "lo": -Infinity,
+        "hi": 0.5,
+        "good": 81807,
+        "bad": 5095,
+        "woe": -0.13978245393346958,
+        "n": 86902,
+        "bad_rate": 0.05862926054636257,
+        "iv_part": 0.010657360525322911
+      },
+      {
+        "feature": "NumberOfDependents",
+        "bin": 1,
+        "lo": 0.5,
+        "hi": 1.5,
+        "good": 24381,
+        "bad": 1935,
+        "woe": 0.10276971826140942,
+        "n": 26316,
+        "bad_rate": 0.07352941176470588,
+        "iv_part": 0.0019375329216581739
+      },
+      {
+        "feature": "NumberOfDependents",
+        "bin": 2,
+        "lo": 1.5,
+        "hi": 2.5,
+        "good": 17938,
+        "bad": 1584,
+        "woe": 0.2095483342811891,
+        "n": 19522,
+        "bad_rate": 0.08113922753816208,
+        "iv_part": 0.0062604098363845916
+      },
+      {
+        "feature": "NumberOfDependents",
+        "bin": 3,
+        "lo": 2.5,
+        "hi": Infinity,
+        "good": 12103,
+        "bad": 1233,
+        "woe": 0.3525896652399259,
+        "n": 13336,
+        "bad_rate": 0.09245650869826035,
+        "iv_part": 0.012888797179278681
+      },
+      {
+        "feature": "NumberOfDependents",
+        "bin": -1,
+        "lo": NaN,
+        "hi": NaN,
+        "good": 3745,
+        "bad": 179,
+        "woe": -0.40190651523241855,
+        "n": 3924,
+        "bad_rate": 0.04561671763506626,
+        "iv_part": 0.003559238710604362
+      }
+    ]
+  }
+}
