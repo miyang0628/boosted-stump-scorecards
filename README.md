@@ -6,12 +6,12 @@ Replication code for the paper of the same title. This repository is released
 **anonymously** for double-blind peer review; author and affiliation details are
 omitted by design.
 
-> **Revision note.** The notebooks prefixed `R1`–`R6` implement the revised
+> **Revision note.** The notebooks prefixed `R1`–`R7` implement the revised
 > analysis (rank-one correspondence; estimand-matched SE; conformal efficiency;
-> Venn–Abers PD intervals; out-of-time validation; all binning and feature
-> selection performed **inside each training fold**). The original `01`–`07`
-> notebooks are kept for provenance; where the two disagree, the `R*` notebooks
-> are authoritative.
+> Venn–Abers PD intervals; out-of-time validation; **deployed-booster coefficient
+> correspondence**; all binning and feature selection performed **inside each
+> training fold**). The original `01`–`07` notebooks are kept for provenance;
+> where the two disagree, the `R*` notebooks are authoritative.
 
 ---
 
@@ -48,14 +48,30 @@ The central claims, all reproducible here:
    PD interval; a **Venn–Abers** predictor can, and the logistic-free booster
    matches logistic-WoE in interval width (median 0.0035 vs 0.0041) and
    calibration (Brier 0.051, ECE ≈0.011).
-5. **Discrimination parity by equivalence testing.** AUC is equivalent within a
-   ±0.01 margin (TOST) on all three datasets; moving binning inside the fold
-   removes a leakage artifact that had inflated the German gap (0.022 → 0.007).
+5. **Discrimination parity by equivalence testing.** Under a dependence-corrected
+   (Nadeau–Bengio) resampled test with a ±0.01 AUC margin, equivalence is certified
+   on **GMSC and HELOC**; on the 1,000-row **German** sample the corrected interval
+   is too wide to certify (point estimate favours logistic-WoE). Moving binning
+   inside the fold removes a leakage artifact that had tripled the German gap
+   (0.022 → 0.007).
 6. **Out-of-time robustness (4th dataset).** On the Polish bankruptcy family (5
    cohorts, 64 features, 3.9–6.9% bad), within-cohort parity holds and, under a
    **genuine out-of-time shift** (cross-cohort PSI up to 0.46, vs ≈0 for a random
    split), both models lose the same ≈0.065 AUC — the equivalence is not an
    artifact of random resampling.
+7. **Coefficient correspondence of the *deployed* booster, not only the free fit.**
+   A depth-one booster on the WoE grid is additive across features, so its own
+   accumulated per-bin curve `s_j(b)` is recovered by an **exact additive
+   decomposition** (reconstruction error < 5·10⁻¹⁴) and projected onto WoE on the
+   same in-fold folds as R1/R1b. Its projection slope tracks `β̂_j` with correlation
+   **0.98 (GMSC)** and **0.99 (German)** — matching the free fit, with deployed-vs-free
+   slope agreement `r ≥ 0.99` — so the coefficient compression is a property of the
+   deployed scorecard, not of the logistic estimator used to study it. On **HELOC**
+   it drops to **0.72**, localized entirely to near-duplicate inquiry features where
+   greedy selection loads the shared signal onto one member (slope 0.30) and never
+   splits on the other (slope 0.003); the projection slope flags exactly those
+   features. This closes the "bin shapes and points of the deployed booster" item
+   that earlier revisions left open.
 
 ---
 
@@ -80,7 +96,8 @@ The central claims, all reproducible here:
 │   ├── R3_conformal.ipynb                   #   conformal efficiency + calibration
 │   ├── R4_discrimination.ipynb             #   three-dataset AUC + equivalence test
 │   ├── R5_venn_abers.ipynb                 #   calibrated PD intervals (Venn-Abers)
-│   └── R6_out_of_time.ipynb                #   out-of-time / temporal robustness (Polish)
+│   ├── R6_out_of_time.ipynb                #   out-of-time / temporal robustness (Polish)
+│   └── R7_deployed_correspondence.ipynb    #   deployed-booster s_j(b) projection slope
 └── results/
     ├── tables/               # CSV outputs (R*_ for the revision)
     └── figures/              # greyscale PNG + PDF, 600 dpi
@@ -99,6 +116,7 @@ The central claims, all reproducible here:
 | `R4_discrimination` | AUC over 50 in-fold splits on all three datasets; DeLong, Wilcoxon, **TOST ±0.01**, XGBoost ceiling. | `R4_discrimination`, `R4_discrimination_summary` |
 | `R5_venn_abers` | Inductive Venn–Abers PD intervals (logit-WoE vs stump) on GMSC: interval width + calibration (Brier/ECE). | `R5_va_width_vs_pd`, `R5_va_summary` |
 | `R6_out_of_time` | Polish bankruptcy (5 cohorts): within-cohort AUC parity + cross-cohort out-of-time AUC/PSI. | `R6_out_of_time`, `R6_oot_matrix` |
+| `R7_deployed_correspondence` | **Deployed** depth-one booster's own per-bin curve `s_j(b)` vs `β̂`, on the same in-fold folds as R1/R1b (GMSC N=20, German N=5, HELOC N=10). `s_j(b)` recovered by exact additive decomposition (verified to machine precision), then projected onto WoE; contrasted with the free `γ̂` slope. | `R7_deployed_slope`, `R7_{GMSC,German,HELOC}_slope_agg`, `R7_deployed_slope_summary` |
 
 All `R*` notebooks are single-cell, seeded (`SEED=42`), and perform binning and
 IV selection inside each training fold. Figures are greyscale, 600 dpi, PNG+PDF.
@@ -112,7 +130,8 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cd notebooks
 for nb in R1_correspondence R1b_correspondence_german_heloc R2_se_alignment \
-          R3_conformal R4_discrimination R5_venn_abers R6_out_of_time; do
+          R3_conformal R4_discrimination R5_venn_abers R6_out_of_time \
+          R7_deployed_correspondence; do
   jupyter nbconvert --to notebook --execute --inplace "$nb.ipynb" \
     --ExecutePreprocessor.timeout=5400
 done
@@ -120,7 +139,7 @@ done
 
 Approximate run times (modern multi-core CPU): `R1` ~1 min, `R1b` ~2 min,
 `R2` ~2 min, `R3` ~3 min, `R4` ~10 min (its GMSC DeLong is the bottleneck),
-`R5` ~2 min, `R6` ~4 min.
+`R5` ~2 min, `R6` ~4 min, `R7` ~4 min (GMSC fits 20 deployed boosters).
 
 ### Key configuration
 
@@ -147,6 +166,15 @@ Approximate run times (modern multi-core CPU): `R1` ~1 min, `R1b` ~2 min,
 - **Out-of-time vs random-split PSI.** Random-split PSI ≈ 0 is uninformative;
   `R6` fits on one Polish cohort and deploys on another, so the score-shift PSI is
   materially non-zero and the AUC drop is a real out-of-time measurement.
+- **Deployed-booster per-bin curve `s_j(b)`.** A depth-one gradient booster on the
+  WoE grid splits one feature per tree, so its score is exactly additive across
+  features: `F(x) = F₀ + Σ_j s_j(b_j(x))`. `R7` recovers each `s_j(·)` by evaluating
+  the fitted booster's `decision_function` over a feature's bin-WoE values with the
+  other features held at a baseline (the additive constant cancels under
+  population-weighted centering), and verifies `Σ_j s_j` reconstructs the raw score
+  to < 5·10⁻¹⁴. The projection slope of `s_j(·)` onto `WoE_j(·)` is then the exact
+  analogue of the free-fit slope, computed on the same folds, so the deployed and
+  free correspondences are directly comparable.
 
 ---
 
